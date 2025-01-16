@@ -97,7 +97,9 @@ jobs:
                 }
               })
             } else {
+              console.log('1...')
               const run_id = runs.data.workflow_runs[0].id
+              console.log('run_id: ' + run_id)
 
               if (runs.data.workflow_runs[0].head_sha != context.payload.pull_request.head.sha) {
                 throw new Error('There was a new unsynced commit pushed. Please retrigger the workflow.');
