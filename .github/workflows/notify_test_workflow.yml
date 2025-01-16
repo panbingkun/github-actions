@@ -32,6 +32,8 @@ jobs:
     name: Notify test workflow
     runs-on: ubuntu-latest
     permissions: write-all
+    secrets:
+      codecov_token: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - name: "Notify test workflow"
         uses: actions/github-script@v7
