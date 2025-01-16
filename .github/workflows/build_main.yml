@@ -23,6 +23,8 @@ on:
   push:
     branches:
       - '**'
+    secrets:
+      codecov_token: ${{ secrets.codecov_token }}
 
 jobs:
   call-build-and-test:
@@ -30,4 +32,4 @@ jobs:
     name: Run
     uses: ./.github/workflows/build_and_test.yml
     secrets:
-      codecov_token: ${{ secrets.CODECOV_TOKEN }}
+      codecov_token: ${{ secrets.codecov_token }}
