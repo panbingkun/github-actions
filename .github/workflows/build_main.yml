@@ -30,4 +30,4 @@ jobs:
     name: Run
     uses: ./.github/workflows/build_and_test.yml
     secrets:
-      codecov_token: ${{ secrets.codecov_token }}
+      codecov_token: ${{ secrets.CODECOV_TOKEN }}
