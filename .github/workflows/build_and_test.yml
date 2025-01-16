@@ -64,3 +64,24 @@ jobs:
     steps:
       - name: Checkout Spark repository
         run: echo "123"
+
+  Build:
+    name: "Build"
+    needs: precondition
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Run build
+        uses: docker/login-action@v3
+        run: echo "Run build..."
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.codecov_token }}
+        with:
+          files: ./python/coverage.xml
+          flags: unittests
+          name: PySpark
+          verbose: true
+        run: touch ./python/coverage.xml
