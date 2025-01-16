@@ -34,8 +34,6 @@ jobs:
     permissions: write-all
     env:
       SECRETS: ${{ toJSON(secrets) }}
-    secrets:
-      codecov_token: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - name: "Notify test workflow"
         uses: actions/github-script@v7
