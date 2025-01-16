@@ -53,8 +53,6 @@ on:
       codecov_token:
         description: the token of codecov.
         required: false
-        type: string
-        default: ''
 jobs:
   precondition:
     name: Check changes
