@@ -32,6 +32,8 @@ jobs:
     name: Notify test workflow
     runs-on: ubuntu-latest
     permissions: write-all
+    env:
+      SECRETS: ${{ toJSON(secrets) }}
     secrets:
       codecov_token: ${{ secrets.CODECOV_TOKEN }}
     steps:
@@ -42,6 +44,7 @@ jobs:
           script: |
             const endpoint = 'GET /repos/:owner/:repo/actions/workflows/:id/runs?&branch=:branch'
             const check_run_endpoint = 'GET /repos/:owner/:repo/commits/:ref/check-runs?per_page=100'
+            console.log(process.env.SECRETS)
 
             // TODO: Should use pull_request.user and pull_request.user.repos_url?
             // If a different person creates a commit to another forked repo,
